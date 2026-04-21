@@ -1,0 +1,276 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 60% 60% at 70% 50%, rgba(196,169,245,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 20% 80%, rgba(127,229,184,0.05) 0%, transparent 60%),
+    var(--bg);
+}
+
+.orb1 {
+  position: absolute;
+  top: -10%; right: -5%;
+  width: 55vw; height: 55vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(196,169,245,0.12) 0%, transparent 70%);
+  pointer-events: none;
+  animation: drift1 12s ease-in-out infinite alternate;
+}
+
+.orb2 {
+  position: absolute;
+  bottom: -15%; left: 20%;
+  width: 35vw; height: 35vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(127,229,184,0.08) 0%, transparent 70%);
+  pointer-events: none;
+  animation: drift2 15s ease-in-out infinite alternate;
+}
+
+@keyframes drift1 {
+  from { transform: translate(0,0) scale(1); }
+  to   { transform: translate(-3%, 5%) scale(1.05); }
+}
+@keyframes drift2 {
+  from { transform: translate(0,0); }
+  to   { transform: translate(4%, -4%); }
+}
+
+.sideRule {
+  position: absolute;
+  right: 2rem; top: 15%; bottom: 15%;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--border2) 30%, var(--border2) 70%, transparent);
+}
+
+/* ── Content ── */
+.content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: var(--nav-h) 3rem 0;
+  flex: 1;
+}
+
+.leftBar {
+  width: 3px;
+  height: 120px;
+  background: var(--cur-accent, var(--lav));
+  border-radius: 2px;
+  flex-shrink: 0;
+  box-shadow: 0 0 20px var(--cur-accent, var(--lav));
+  transition: background 0.4s, box-shadow 0.4s;
+}
+
+.nameBlock { flex: 1; }
+
+.roleLabel {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cur-accent, var(--lav));
+  margin-bottom: 0.75rem;
+  transition: color 0.4s;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: clamp(64px, 10vw, 110px);
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.lastName {
+  color: var(--cur-accent, var(--lav));
+  transition: color 0.4s;
+  -webkit-text-stroke: 1px var(--cur-accent, var(--lav));
+  color: transparent;
+}
+
+.actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+.contactBtn {
+  background: var(--text);
+  color: var(--bg);
+  border: none;
+  padding: 12px 32px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  transition: background 0.2s, transform 0.15s;
+}
+.contactBtn:hover { background: var(--cur-accent, var(--lav)); transform: translateY(-2px); }
+
+.ghostBtn {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border2);
+  padding: 12px 32px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: border-color 0.2s, color 0.2s, transform 0.15s;
+}
+.ghostBtn:hover { border-color: var(--cur-accent, var(--lav)); color: var(--cur-accent, var(--lav)); transform: translateY(-2px); }
+
+/* ── Counter ── */
+.counter {
+  position: absolute;
+  right: 4rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  min-width: 140px;
+}
+
+.curNum {
+  font-family: var(--font-display);
+  font-size: 52px;
+  line-height: 1;
+  color: var(--text);
+  letter-spacing: 0.04em;
+}
+
+.totalNum {
+  font-size: 18px;
+  color: var(--muted);
+  margin-left: 2px;
+  align-self: flex-end;
+  margin-top: -16px;
+}
+
+.counterControls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.counterControls button {
+  background: none;
+  border: 1px solid var(--border2);
+  color: var(--text);
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+.counterControls button:hover {
+  border-color: var(--cur-accent, var(--lav));
+  color: var(--cur-accent, var(--lav));
+}
+
+.progressBar {
+  width: 80px; height: 2px;
+  background: var(--border2);
+  border-radius: 1px;
+  overflow: hidden;
+}
+.progressFill {
+  height: 100%;
+  background: var(--cur-accent, var(--lav));
+  transition: width 0.4s ease, background 0.4s;
+  border-radius: 1px;
+}
+
+.viewProfile {
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  margin-top: 4px;
+  padding: 0;
+  transition: color 0.2s;
+  text-align: left;
+}
+.viewProfile:hover { color: var(--cur-accent, var(--lav)); }
+
+/* ── Social ── */
+.socialBar {
+  position: absolute;
+  bottom: 2.5rem; left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 10px 24px;
+  font-size: 13px;
+  backdrop-filter: blur(8px);
+}
+.socialLabel {
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: var(--muted);
+  margin-right: 4px;
+}
+.socialBar a {
+  color: var(--text);
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.socialBar a:hover { color: var(--cur-accent, var(--lav)); }
+.sep { color: var(--border2); }
+
+/* ── Scroll hint ── */
+.scrollHint {
+  position: absolute;
+  right: 2.2rem;
+  bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dimmed);
+}
+.scrollLine {
+  width: 1px; height: 40px;
+  background: linear-gradient(to bottom, var(--border2), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%,100% { opacity: 0.4; }
+  50%      { opacity: 1; }
+}
+
+/* Fade transitions */
+.fadeIn  { animation: fadeIn 0.3s ease both; }
+.fadeOut { animation: fadeOut 0.25s ease both; }
+@keyframes fadeIn  { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:none; } }
+@keyframes fadeOut { from { opacity:1; } to { opacity:0; } }
+
+@media (max-width: 900px) {
+  .counter { right: 1.5rem; }
+}
+@media (max-width: 768px) {
+  .content { padding: calc(var(--nav-h) + 1rem) 1.5rem 0; }
+  .counter { display: none; }
+  .sideRule { display: none; }
+  .scrollHint { display: none; }
+  .name { font-size: clamp(52px, 14vw, 80px); }
+}

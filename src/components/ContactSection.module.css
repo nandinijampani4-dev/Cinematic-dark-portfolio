@@ -1,0 +1,119 @@
+.section {
+  padding: 6rem 3rem 0;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+}
+
+.inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;
+  padding-bottom: 5rem;
+}
+
+.eyebrow {
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--lav); margin-bottom: 0.75rem; font-weight: 600;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 56px); font-weight: 400; line-height: 1.05;
+  color: var(--text); margin-bottom: 1rem;
+}
+
+.heading em {
+  font-style: italic; color: var(--lav);
+  font-family: 'DM Serif Display', Georgia, serif;
+}
+
+.sub { font-size: 14px; line-height: 1.8; color: var(--muted); margin-bottom: 2rem; }
+
+.links { display: flex; flex-direction: column; gap: 12px; }
+
+.contactLink {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+}
+
+.contactLink:hover {
+  border-color: var(--lav);
+  background: var(--lav-glow);
+  transform: translateX(4px);
+}
+
+.linkIcon {
+  font-size: 20px; line-height: 1;
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(196,169,245,0.1);
+  border-radius: 8px;
+  color: var(--lav);
+  flex-shrink: 0;
+}
+
+.contactLink > div { display: flex; flex-direction: column; gap: 1px; }
+.linkLabel { font-size: 11px; color: var(--dimmed); text-transform: uppercase; letter-spacing: 0.07em; }
+.linkVal { font-size: 13px; font-weight: 500; color: var(--text); }
+
+/* Education */
+.eduList { display: flex; flex-direction: column; gap: 10px; margin-bottom: 2rem; }
+
+.eduCard {
+  display: flex; align-items: center; gap: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  transition: border-color 0.2s;
+}
+.eduCard:hover { border-color: var(--butter); }
+
+.eduIcon {
+  font-size: 22px; width: 42px; height: 42px;
+  background: rgba(255,224,130,0.1);
+  border: 1px solid rgba(255,224,130,0.2);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.eduDegree { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 2px; }
+.eduLoc { font-size: 12px; color: var(--dimmed); }
+
+.cta { margin-top: 0.5rem; }
+
+.ctaBtn {
+  display: inline-flex; align-items: center;
+  background: var(--lav);
+  color: var(--bg);
+  font-size: 14px; font-weight: 600;
+  padding: 13px 28px; border-radius: 999px;
+  transition: opacity 0.2s, transform 0.15s;
+  letter-spacing: 0.03em;
+}
+.ctaBtn:hover { opacity: 0.85; transform: translateY(-2px); }
+
+/* Footer */
+.footer {
+  max-width: 1100px; margin: 0 auto;
+  border-top: 1px solid var(--border);
+  padding: 1.5rem 0;
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+.footerName {
+  font-family: var(--font-display);
+  font-size: 18px; letter-spacing: 0.06em; color: var(--muted);
+}
+
+.footerCopy { font-size: 12px; color: var(--dimmed); }
+
+@media (max-width: 768px) {
+  .section { padding: 4rem 1.5rem 0; }
+  .inner { grid-template-columns: 1fr; gap: 3rem; }
+  .footer { flex-direction: column; gap: 6px; text-align: center; }
+}

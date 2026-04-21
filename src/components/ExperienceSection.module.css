@@ -1,0 +1,134 @@
+.section { padding: 6rem 3rem; background: var(--bg); }
+
+.inner { max-width: 900px; margin: 0 auto; }
+
+.header { margin-bottom: 3rem; }
+
+.eyebrow {
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--lav); margin-bottom: 0.5rem; font-weight: 600;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 400; color: var(--text); line-height: 1.1;
+}
+
+/* Card */
+.card {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  transition: border-color 0.25s, box-shadow 0.25s;
+  animation: cardIn 0.5s ease both;
+  background: var(--surface);
+}
+.card:hover { border-color: color-mix(in srgb, var(--accent) 40%, transparent); }
+.cardOpen {
+  border-color: color-mix(in srgb, var(--accent) 50%, transparent);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 20%, transparent),
+              0 8px 32px rgba(0,0,0,0.3);
+}
+
+@keyframes cardIn {
+  from { opacity:0; transform: translateY(16px); }
+  to   { opacity:1; transform: none; }
+}
+
+.row {
+  width: 100%; background: none; border: none;
+  display: flex; align-items: center; gap: 16px;
+  padding: 1.1rem 1.4rem; text-align: left; font-family: var(--font-body);
+  cursor: pointer;
+}
+
+.dot {
+  width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0;
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  color: var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 600; letter-spacing: 0.04em;
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  transition: background 0.2s;
+}
+.card:hover .dot { background: color-mix(in srgb, var(--accent) 25%, transparent); }
+
+.meta { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+
+.clientName { font-size: 15px; font-weight: 600; color: var(--text); }
+.sub { font-size: 12px; font-weight: 300; color: var(--muted); }
+.role { font-size: 12px; color: var(--muted); }
+
+.tenure {
+  font-size: 12px; color: var(--accent);
+  font-weight: 500; white-space: nowrap; flex-shrink: 0;
+}
+
+.chevron {
+  font-size: 20px; color: var(--muted);
+  transition: transform 0.3s; flex-shrink: 0; line-height: 1;
+  display: inline-block;
+}
+.chevOpen { transform: rotate(90deg); color: var(--accent); }
+
+/* Summary (always visible) */
+.summary {
+  font-size: 13px; line-height: 1.7; color: var(--muted);
+  padding: 0 1.4rem 0.8rem calc(1.4rem + 56px);
+  border-top: 1px solid var(--border);
+  padding-top: 0.7rem;
+}
+
+/* Expandable body */
+.body { max-height: 0; overflow: hidden; transition: max-height 0.45s cubic-bezier(0.4,0,0.2,1); }
+.bodyOpen { max-height: 3000px; }
+
+.bodyInner {
+  padding: 0 1.4rem 1.4rem calc(1.4rem + 56px);
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+}
+
+.respTitle {
+  font-size: 11px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--accent); margin-bottom: 10px;
+}
+
+.respList { display: flex; flex-direction: column; gap: 8px; }
+
+.respList li {
+  display: flex; gap: 10px; align-items: flex-start;
+  font-size: 13px; line-height: 1.7; color: var(--muted);
+}
+
+.bullet {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--accent); flex-shrink: 0; margin-top: 7px;
+}
+
+.envRow {
+  margin-top: 1.2rem;
+  display: flex; align-items: flex-start; gap: 12px; flex-wrap: wrap;
+}
+
+.envLabel {
+  font-size: 11px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--dimmed); padding-top: 3px; white-space: nowrap;
+}
+
+.envTags { display: flex; flex-wrap: wrap; gap: 5px; }
+
+.envTag {
+  font-size: 11px; padding: 3px 10px; border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  color: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+@media (max-width: 768px) {
+  .section { padding: 4rem 1.5rem; }
+  .tenure { display: none; }
+  .summary, .bodyInner { padding-left: 1.4rem; }
+}

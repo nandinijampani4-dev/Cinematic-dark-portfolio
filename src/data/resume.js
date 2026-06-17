@@ -4,7 +4,7 @@ export const profile = {
   tagline: 'Crafting scalable APIs · React frontends · Cloud solutions',
   phone: '+1 870 938 3502',
   email: 'nandini.jampani09@gmail.com',
-  linkedin: 'https://www.linkedin.com/in/nandini-j-73762ab7/',
+  linkedin: 'https://www.linkedin.com/in/nandini-jampani-73762ab7',
   github: 'https://github.com/Nandini-Jampani',
   summary:
     'Full Stack Developer with 8+ years building scalable web applications, RESTful APIs, and cloud-based solutions across healthcare and enterprise domains. Proficient in .NET Core, React, Angular, Azure, and API security (OAuth 2.0, JWT, CIAM).',

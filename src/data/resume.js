@@ -63,7 +63,7 @@ export const clients = [
   {
     id: 'chpw',
     initials: 'CH',
-    name: 'Community Health Plan of Washington',
+    name: 'New York State Department of Health',
     location: 'WA, US',
     role: 'Senior .NET Full Stack Developer',
     tenure: 'Jan 2024 – Feb 2025',
